@@ -34,7 +34,12 @@ const show = async (req, res) => {
 
 const update = async(req, res) => {
     try {
-        await Post.findByIdAndUpdate(req.params.id, req.body).exec()
+        const user = req.user._id
+
+        await Post.findOneAndUpdate({
+        _id: req.params.id,
+        user
+    }).exec()
     } catch (error) {
         console.log(error)
         res.status(400).json();       
@@ -43,7 +48,12 @@ const update = async(req, res) => {
 
 const destroy = async (req, res) => {
     try {
-        await PostfindByIdAndDelete(req.params.id).exec();
+        const user = req.user._id
+
+        await Post.findOneAndDelete({
+            _id: req.params.id,
+            user
+        }).exec();
     } catch (error) {
         res.status(401).json();
     }

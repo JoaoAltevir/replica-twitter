@@ -17,7 +17,7 @@ const signup = async (req,res) => {
     }
 }
 
-const login = async (req,res) => {
+const login = async (req,res) => {c
     try {
         const user = await User.findOne({
             email: req.body.email
@@ -34,4 +34,9 @@ const login = async (req,res) => {
     } catch (error) {
         res.status(400).json(error)
     }
+}
+
+export default {
+    login,
+    signup
 }
