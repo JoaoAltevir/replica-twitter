@@ -17,7 +17,7 @@ const signup = async (req,res) => {
     }
 }
 
-const login = async (req,res) => {c
+const login = async (req,res) => {
     try {
         const user = await User.findOne({
             email: req.body.email
