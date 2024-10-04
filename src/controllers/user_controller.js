@@ -1,8 +1,6 @@
 import User from "../models/user_model.js";
-<<<<<<< HEAD
 import jwtServices from "../services/jwt_services.js"
-=======
-import jwtServices from "../services/jwt_services.js";
+
 
 const store = async (req,res) => {
     try {
@@ -50,7 +48,7 @@ const destroy = async (req, res) => {
 }
 
 ///////////////
->>>>>>> 29a084113f9ba9599b7003a3dc6b90b35ccddfda
+
 
 
 const signup = async (req,res) => {
