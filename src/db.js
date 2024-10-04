@@ -1,14 +1,10 @@
 import mongoose from "mongoose";
 
-const main = async () => {
+(async () => {
   try {
     await mongoose.connect(process.env.MONGODB);
-    console.log("Conectado com sucesso!");
+    console.log("conectado com sucesso")
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
-};
-
-main();
-
-export default mongoose
+})();
