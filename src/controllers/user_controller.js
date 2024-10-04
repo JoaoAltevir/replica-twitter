@@ -1,13 +1,39 @@
 import User from "../models/user_model.js";
 import jwtServices from "../services/jwt_services.js";
 
+const store = async (req,res) => {
+    try {
+        await User.create(req.body);
+        res.json();
+    } catch (error) {
+        res.status(400).json(error);
+    }
+}
 
 const index = async (req, res) => {
     try {
-        const content = await User.find(req.query).exec()
+        const content = await User.find().exec();
         res.json(content);
     } catch (error) {
-        res.status(400).json();
+        res.status(400).json(error);
+    }
+}
+
+const show = async (req,res) => {
+    try {
+        const content = await User.findById(req.params.id).exec();
+        res.json(content); 
+    } catch (error) {
+        res.status(400).json(error);
+    }
+}
+
+const update = async (req, res) => {
+    try {
+        await User.findByIdAndUpdate(req.params.id, req.body).exec();
+        res.json();    
+    } catch (error) {
+        res.status(400).json(error);
     }
 }
 
@@ -16,12 +42,9 @@ const destroy = async (req, res) => {
         await User.findByIdAndDelete(req.params.id).exec();
         res.json();
     } catch (error) {
-        console.log(error);
-        res.status(403).json();
+        res.status(400).json(error);
     }
 }
-    
-
 
 ///////////////
 
@@ -65,5 +88,8 @@ export default {
     login,
     signup,
     index,
-    destroy
+    destroy,
+    store,
+    show,
+    update
 }
