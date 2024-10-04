@@ -9,7 +9,7 @@ router.post("/signup", userController.signup);
 router.post("/login", userController.login);
 
 router.use(authenticator);
-router.use(authorizer);
+router.use(authorizer("ADM"));
 router.get("/", userController.index);
 router.delete("/:id", userController.destroy);
 
