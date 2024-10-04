@@ -5,8 +5,8 @@ import {
     store,
     index,
     show,
-    destroy,
-    update
+    update,
+    destroy
 } from "../controllers/user_controller.js"
 import { followUnfollow } from "../controllers/following_controller.js"
 import authenticator from "../middlewares/jwt_auth.js"
