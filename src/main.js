@@ -1,4 +1,5 @@
 import "dotenv/config"
+import "./db.js"
 import e from "express"
 import userRouter from "./routers/user_router.js"
 import postRouter from "./routers/post_router.js"
