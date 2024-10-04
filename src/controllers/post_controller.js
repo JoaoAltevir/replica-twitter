@@ -2,11 +2,15 @@ import Post from "../models/post_model.js"
 
 const store = async (req, res) => {
     try {
-        const user = await Post.create({
-            text: req.body.text,
-            user: req.user
-        })
-        res.status(201).json(user)
+        const { text } = req.body;
+        const user = req.user._id;
+        
+        const content = await Post.create({
+            text,
+            user
+        });
+
+        res.status(201).json(content)
     } catch (error) {
         res.status(400).json()
     }
