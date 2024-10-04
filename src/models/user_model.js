@@ -34,8 +34,9 @@ const userSchema = new Schema({
     },
     following: {
         type: [Schema.Types.ObjectId],
+        required: false,
         ref: "User"
-    }
+    },
 },
     {
         timestamps: true
