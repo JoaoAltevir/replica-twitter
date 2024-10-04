@@ -7,9 +7,11 @@ const jwtAuth = (req, res, next) => {
         if (user) {
             req.user = user
             next()
+        }else{
+            throw new Error();
         }
-        throw new Error();
     } catch (error) {
+        console.log(error)
         res.sendStatus(401)
     }
 }
