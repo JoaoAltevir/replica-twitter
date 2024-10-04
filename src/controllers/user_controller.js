@@ -87,9 +87,11 @@ const login = async (req,res) => {
 export default {
     login,
     signup,
-    index,
-    destroy,
     store,
+    index,
     show,
-    update
+    update,
+    destroy,
 }
+
+
