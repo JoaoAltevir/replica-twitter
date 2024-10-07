@@ -93,7 +93,7 @@ export default {
     index,
     show,
     update,
-    destroy,
+    destroy
 }
 
 
