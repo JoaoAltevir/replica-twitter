@@ -10,7 +10,7 @@ const jwtAuth = async (req, res, next) => {
             req.user = await User.findById(user._id);
             next()
         }else{
-            throw new Error();
+            throw new Error("Usuario não encontrado!");
         }
     } catch (error) {
         console.log(error)

@@ -1,4 +1,4 @@
-export default followUnfollow = async (req,res) => {
+const followUnfollow = async (req,res) => {
     try {
         if(!req.user.following.includes(req.params.id)){
             req.user.following.push(req.params.id);
@@ -14,3 +14,5 @@ export default followUnfollow = async (req,res) => {
         res.status(400).json()
     }
 }
+
+export default followUnfollow
